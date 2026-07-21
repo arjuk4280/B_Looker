@@ -17,96 +17,193 @@
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
+.splash-screen{
+position:fixed;
+inset:0;
+background:linear-gradient(135deg,#0D47A1,#1565C0,#2196F3);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:50000;
+transition:.6s;
+}
 
+.splash-screen.hide{
+opacity:0;
+visibility:hidden;
+}
+
+.splash-logo{
+width:120px;
+height:120px;
+border-radius:28px;
+background:white;
+padding:18px;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+animation:logoFloat 2s infinite ease-in-out;
+}
+
+.splash-screen h1{
+margin-top:28px;
+font-size:34px;
+font-weight:800;
+color:white;
+letter-spacing:1px;
+}
+
+.splash-screen p{
+margin-top:10px;
+color:white;
+font-size:16px;
+opacity:.95;
+}
+
+.loader{
+margin-top:35px;
+width:44px;
+height:44px;
+border:4px solid rgba(255,255,255,.3);
+border-top:4px solid white;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+@keyframes logoFloat{
+0%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-8px);
+}
+100%{
+transform:translateY(0);
+}
+}
     body {
-      background: #edf1f5;
-      min-height: 100vh;
-      color: #0f172a;
-    }
+  background: linear-gradient(135deg,#0F4C81,#1565C0,#2196F3);
+  min-height: 100vh;
+  color: #0f172a;
+}
 
-    .header {
-      background: #1565c0;
-      color: white;
-      padding: 22px 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.15);
-    }
+.header {
+  background: linear-gradient(135deg,#0D47A1,#1565C0,#1976D2);
+  color: white;
+  padding: 24px 20px;
+  text-align: center;
+  border-bottom-left-radius:28px;
+  border-bottom-right-radius:28px;
+  box-shadow:0 12px 30px rgba(0,0,0,.20);
+}
 
-    .title {
-      font-size: 24px;
-      font-weight: 700;
-    }
+.title{
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
 
-    .subtitle {
-      margin-top: 4px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
+.subtitle{
+  margin-top:8px;
+  font-size:15px;
+  opacity:.95;
+  line-height:1.6;
+}
 
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 18px;
-    }
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 22px;
+}
 
-    .card {
-      background: white;
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.1);
-      margin-bottom: 18px;
-    }
+.card {
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+  margin-bottom: 20px;
+}
 
     .card.scanned {
-      border: 2px solid #1565c0;
-    }
+  border: 3px solid #16a34a;
+  box-shadow: 0 0 25px rgba(22,163,74,.25);
+}
 
     .card-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #0D47A1;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
 
     .display-box {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 12px;
-      min-height: 48px;
-      word-break: break-word;
-      color: #334155;
-    }
+  background:#f8fbff;
+  border:2px solid #dbeafe;
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:12px;
+  min-height:52px;
+  word-break:break-word;
+  color:#1e293b;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
 
     .parsed-box {
-      background: #f1f5f9;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 12px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
+  background:#eef6ff;
+  border-left:5px solid #1976D2;
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:14px;
+  font-size:14px;
+  line-height:1.7;
+  box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
 
     .btn {
-      width: 100%;
-      height: 54px;
-      border: none;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all .25s ease;
+}
 
-    .btn-primary {
-      background: #1565c0;
-      color: white;
-    }
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
 
-    .btn-secondary {
-      background: white;
-      color: #1565c0;
-      border: 2px solid #1565c0;
-    }
+.btn:active{
+  transform:scale(.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg,#1976D2,#0D47A1);
+  color: white;
+}
+
+.btn-secondary {
+  background: white;
+  color: #1565c0;
+  border: 2px solid #1565c0;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg,#ef5350,#d32f2f);
+  color:white;
+}
 
     .btn-danger {
       background: #fee2e2;
@@ -115,120 +212,177 @@
     }
 
     .submit-btn {
-      height: 64px;
-      font-size: 22px;
-      background: #94a3b8;
-      color: white;
-      cursor: not-allowed;
-    }
+  height: 64px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .8px;
+  border-radius: 18px;
+  background: linear-gradient(135deg,#B0BEC5,#90A4AE);
+  color: white;
+  cursor: not-allowed;
+  transition: all .25s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+}
 
-    .submit-btn.enabled {
-      background: #1565c0;
-      cursor: pointer;
-    }
+.submit-btn.enabled {
+  background: linear-gradient(135deg,#1976D2,#0D47A1);
+  cursor: pointer;
+}
 
-    .submit-btn.loading {
-      background: #64748b;
-      cursor: not-allowed;
-    }
+.submit-btn.enabled:hover{
+  transform: translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
 
-    .status {
-      text-align: center;
-      margin-top: 14px;
-      min-height: 22px;
-      color: #475569;
-      font-size: 15px;
-    }
+.submit-btn.enabled:active{
+  transform:scale(.98);
+}
 
-    .status.success {
-      color: #059669;
-      font-weight: 700;
-    }
+.submit-btn.loading {
+  background: linear-gradient(135deg,#607D8B,#455A64);
+  cursor: not-allowed;
+}
+.card{
+transition:all .30s ease;
+}
 
-    .status.error {
-      color: #dc2626;
-      font-weight: 700;
-    }
+.card:hover{
+transform:translateY(-3px);
+}
+    .status{
+text-align:center;
+margin-top:18px;
+padding:14px;
+border-radius:16px;
+font-size:15px;
+font-weight:700;
+background:#f8fafc;
+transition:.25s;
+}
+
+.status.success{
+background:#dcfce7;
+color:#15803d;
+border:2px solid #86efac;
+}
+
+.status.error{
+background:#fee2e2;
+color:#b91c1c;
+border:2px solid #fca5a5;
+}
 
     .manual-section {
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px dashed #cbd5e1;
-    }
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 2px dashed #d6e4f5;
+}
 
     .manual-label {
-      font-size: 14px;
-      color: #475569;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
+  font-size: 15px;
+  color: #0D47A1;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
 
     .manual-input {
-      width: 100%;
-      height: 50px;
-      border: 2px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 0 12px;
-      font-size: 15px;
-    }
+  width: 100%;
+  height: 54px;
+  border: 2px solid #dbe4ee;
+  border-radius: 16px;
+  padding: 0 16px;
+  font-size: 15px;
+  background: #fafcff;
+  transition: all .25s ease;
+}
+
+.manual-input:focus{
+  outline:none;
+  border-color:#1976D2;
+  box-shadow:0 0 0 4px rgba(25,118,210,.15);
+}
 
     .hint {
-      font-size: 13px;
-      color: #64748b;
-      margin-top: 6px;
-      line-height: 1.5;
-    }
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 8px;
+  line-height: 1.6;
+  background: #f8fbff;
+  padding: 10px;
+  border-radius: 12px;
+}
 
     .camera-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.95);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 20px;
-    }
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5,15,35,.97);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24px;
+}
 
-    .camera-overlay.open {
-      display: flex;
-    }
+.camera-overlay.open {
+  display: flex;
+}
 
-    .camera-title {
-      color: white;
-      margin-bottom: 14px;
-      font-size: 18px;
-      text-align: center;
-      font-weight: 700;
-    }
+.camera-title {
+  color: #ffffff;
+  margin-bottom: 18px;
+  font-size: 22px;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
 
-    .camera-wrap {
-      position: relative;
-      width: min(92vw, 420px);
-    }
+.camera-wrap {
+  position: relative;
+  width: min(92vw,430px);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 15px 45px rgba(0,0,0,.45);
+}
 
-    #video {
-      width: 100%;
-      border-radius: 16px;
-      background: #111;
-    }
+#video {
+  width:100%;
+  border-radius:24px;
+  background:#000;
+}
 
-    #canvas {
-      display: none;
-    }
+#canvas {
+  display:none;
+}
 
-    .scan-box {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 62%;
-      aspect-ratio: 1;
-      transform: translate(-50%, -50%);
-      border: 3px solid rgba(255,255,255,0.9);
-      border-radius: 18px;
-      pointer-events: none;
-    }
+.scan-box {
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:68%;
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  border:4px solid #00E676;
+  border-radius:22px;
+  box-shadow:
+      0 0 18px rgba(0,230,118,.9),
+      inset 0 0 18px rgba(0,230,118,.5);
+  animation:scanGlow 1.2s infinite alternate;
+  pointer-events:none;
+}
+
+@keyframes scanGlow{
+from{
+box-shadow:
+0 0 8px rgba(0,230,118,.5),
+inset 0 0 8px rgba(0,230,118,.4);
+}
+to{
+box-shadow:
+0 0 26px rgba(0,230,118,1),
+inset 0 0 22px rgba(0,230,118,.7);
+}
+}
 
     .camera-result {
       color: white;
@@ -280,71 +434,175 @@
     }
 
     .popup {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      z-index: 10000;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5,15,35,.75);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
-    .popup.open {
-      display: flex;
-    }
+.popup.open {
+  display: flex;
+}
 
-    .popup-box {
-      background: white;
-      width: min(92vw, 380px);
-      border-radius: 20px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,.2);
-    }
+.popup-box {
+  background: #ffffff;
+  width: min(92vw,380px);
+  border-radius: 28px;
+  padding: 34px 28px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+  animation: popupShow .25s ease;
+}
 
-    .popup-box h3 {
-      margin-bottom: 10px;
-      color: #059669;
-      font-size: 22px;
-    }
+.popup-box h3 {
+  margin-bottom: 14px;
+  color: #16a34a;
+  font-size: 28px;
+  font-weight: 800;
+}
 
-    .popup-box p {
-      color: #475569;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
+.popup-box p {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
 
-    .popup-box button {
-      width: 100%;
-      height: 48px;
-      border: none;
-      border-radius: 12px;
-      background: #1565c0;
-      color: white;
-      font-weight: 700;
-      cursor: pointer;
-    }
+.popup-box button {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg,#1976D2,#0D47A1);
+  color: white;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+  transition: all .25s ease;
+}
 
-    .debug-box {
-      margin-top: 10px;
-      background: #0f172a;
-      color: #86efac;
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 12px;
-      font-family: monospace;
-      white-space: pre-wrap;
-      word-break: break-word;
-      max-height: 160px;
-      overflow-y: auto;
-      display: none;
-    }
+.popup-box button:hover{
+  transform: translateY(-2px);
+}
 
-    .debug-box.show {
-      display: block;
-    }
+.popup-box button:active{
+  transform: scale(.98);
+}
 
+@keyframes popupShow{
+  from{
+    opacity:0;
+    transform:scale(.90);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+    
+#loginPage{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+background:linear-gradient(135deg,#1565c0,#0f4fa8);
+padding:25px;
+}
+
+.login-card{
+background:#fff;
+width:100%;
+max-width:420px;
+padding:35px;
+border-radius:28px;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+animation:fadeIn .5s;
+}
+
+.login-logo{
+width:120px;
+display:block;
+margin:0 auto 20px;
+}
+
+.login-card h1{
+text-align:center;
+font-size:32px;
+color:#1565c0;
+margin-bottom:8px;
+}
+
+.login-subtitle{
+text-align:center;
+color:#64748b;
+margin-bottom:30px;
+}
+
+.login-card input{
+width:100%;
+height:55px;
+margin-bottom:18px;
+padding:0 18px;
+font-size:16px;
+border:2px solid #dbe4ef;
+border-radius:14px;
+outline:none;
+transition:.3s;
+}
+
+.login-card input:focus{
+border-color:#1565c0;
+}
+
+#loginBtn{
+width:100%;
+height:56px;
+background:#1565c0;
+color:#fff;
+border:none;
+border-radius:14px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+#loginBtn:hover{
+transform:translateY(-2px);
+}
+
+#loginMessage{
+height:28px;
+margin-top:15px;
+text-align:center;
+font-weight:bold;
+color:#dc2626;
+}
+
+.login-footer{
+margin-top:35px;
+text-align:center;
+font-size:13px;
+color:#94a3b8;
+line-height:1.7;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
     @media (max-width: 520px) {
       .card-title {
         font-size: 20px;
@@ -353,6 +611,57 @@
   </style>
 </head>
 <body>
+
+<div id="splashScreen" class="splash-screen">
+
+    <img src="icon-512.png" class="splash-logo">
+
+    <h1>Barrel Tracker</h1>
+
+    <p>Barrel Area Monitoring System</p>
+
+    <div class="loader"></div>
+
+</div>
+<div id="loginPage">
+
+  <div class="login-card">
+
+    <img src="icon-512.png" class="login-logo">
+
+    <h1>Barrel Tracker</h1>
+
+    <p class="login-subtitle">Barrel Area Monitoring System</p>
+
+    <input
+      type="text"
+      id="empId"
+      placeholder="Employee ID"
+      autocomplete="off"
+    >
+
+    <input
+      type="password"
+      id="empPassword"
+      placeholder="Password"
+    >
+
+    <button id="loginBtn" onclick="loginUser()">
+      LOGIN
+</button>
+
+    <div id="loginMessage"></div>
+
+    <div class="login-footer">
+      Version 2.0<br>
+Developed by Arju Kumar
+    </div>
+
+  </div>
+
+</div>
+
+<div id="mainApp" style="display:none;">
   <div class="header">
     <div class="title">Barrel Area Monitoring</div>
     <div class="subtitle">Operator</div>
@@ -416,7 +725,6 @@
 
     <button id="submitBtn" class="btn submit-btn" disabled onclick="submitData()">Submit</button>
     <div id="status" class="status">Scan or enter both QR codes to enable submit</div>
-    <div id="debugBox" class="debug-box"></div>
   </div>
 
   <div class="camera-overlay" id="cameraOverlay">
@@ -442,6 +750,15 @@
   </div>
 
   <script>
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        document.getElementById("splashScreen").classList.add("hide");
+
+    }, 1800);
+
+});
     // IMPORTANT: paste the CURRENT "Web app" URL from
     // Apps Script -> Deploy -> Manage deployments -> Web app -> URL
     // Every time you create a NEW deployment version, this URL can change.
@@ -619,11 +936,8 @@
     }
 
     function showDebug(message) {
-      const box = document.getElementById("debugBox");
-      box.classList.add("show");
-      const time = new Date().toLocaleTimeString();
-      box.innerText = "[" + time + "] " + message + "\n" + box.innerText;
-    }
+  // Debug output disabled for production.
+}
 
     async function openCamera(type) {
       currentScanType = type;
@@ -799,6 +1113,7 @@
     }
 
     async function submitData() {
+
       if (!machineData || !materialData) {
         showStatus("Both QR codes are required.", "error");
         return;
@@ -812,17 +1127,20 @@
 
       showStatus("Submitting data...", "");
 
+
       try {
         const payload = {
-          stage: machineData.stage,
-          machineNo: machineData.machineNo,
-          chamber: machineData.chamber,
-          ft: materialData.ft,
-          pid: materialData.pid,
-          modelNo: materialData.modelNo,
-          quantity: materialData.quantity,
-          sheetCode: materialData.sheetCode
-        };
+  stage: machineData.stage,
+  machineNo: machineData.machineNo,
+  chamber: machineData.chamber,
+  ft: materialData.ft,
+  pid: materialData.pid,
+  modelNo: materialData.modelNo,
+  quantity: materialData.quantity,
+  sheetCode: materialData.sheetCode,
+
+  submittedBy: currentUser.name
+};
 
         showDebug("Sending payload: " + JSON.stringify(payload));
 
@@ -871,13 +1189,73 @@
     function closePopup() {
       document.getElementById("successPopup").classList.remove("open");
     }
+let currentUser = null;
 
-    function escapeHtml(text) {
-      const div = document.createElement("div");
-      div.innerText = text;
-      return div.innerHTML;
+async function loginUser() {
+
+    const id = document.getElementById("empId").value.trim();
+    const pass = document.getElementById("empPassword").value.trim();
+
+    if (id === "" || pass === "") {
+        document.getElementById("loginMessage").innerText = "Enter Employee ID and Password";
+        return;
     }
-  </script>
+
+    document.getElementById("loginBtn").disabled = true;
+    document.getElementById("loginBtn").innerText = "Please Wait...";
+
+    try {
+
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify({
+                action: "login",
+                employeeId: id,
+                password: pass
+            })
+        });
+
+        const result = await response.json();
+
+        if (!result.success) {
+            document.getElementById("loginBtn").disabled = false;
+            document.getElementById("loginBtn").innerText = "LOGIN";
+            document.getElementById("loginMessage").innerText = result.message;
+            return;
+        }
+
+        currentUser = result.user;
+
+        localStorage.setItem("blookerUser", JSON.stringify(currentUser));
+
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainApp").style.display = "block";
+
+        document.querySelector(".subtitle").innerHTML =
+            "Welcome<br><b>" + currentUser.name + "</b><br>" +
+            currentUser.employeeId + "<br>Have a great day!";
+
+        } catch (err) {
+
+        document.getElementById("loginBtn").disabled = false;
+        document.getElementById("loginBtn").innerText = "LOGIN";
+        document.getElementById("loginMessage").innerText = "Unable to connect";
+
+        }
+
+}
+
+function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.innerText = text;
+    return div.innerHTML;
+}
+
+</script>
+
 <script>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js')
@@ -886,5 +1264,6 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 
+</div>
 </body>
 </html>
